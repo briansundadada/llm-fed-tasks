@@ -12,7 +12,7 @@
 | `PCEPI_1999_2025.csv` | BEA via [FRED PCEPI](https://fred.stlouisfed.org/series/PCEPI) | Monthly headline PCE price index; 1999 supplies year-over-year lags |
 | `SPF_PCE_median_2000_2025.csv` | Philadelphia Fed [Survey of Professional Forecasters](https://www.philadelphiafed.org/surveys-and-data/real-time-data-research/survey-of-professional-forecasters) | Survey medians; PCE3–PCE6 supply forecasts for t+1 through t+4 |
 
-Source pages were checked on 11 November 2026 for attribution; current values on those pages may differ from these snapshots. Refer to upstream providers for their data terms. The SPF CSV contains years before PCE forecasts became available; the early missing values are retained.
+
 
 ## Processed historical panel
 
