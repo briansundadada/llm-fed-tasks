@@ -1,0 +1,109 @@
+from pathlib import Path
+import pandas as pd
+
+folder = Path(__file__).resolve().parent
+output_folder = folder / "processed"
+output_folder.mkdir(exist_ok=True)
+
+# Read the five FRED series.
+files = {
+    "UNRATE": "UNRATE_2000_2025.csv",
+    "NROU": "NROU_2000_2025.csv",
+    "GDPC1": "GDPC1_2000_2025.csv",
+    "GDPPOT": "GDPPOT_2000_2025.csv",
+    "PCEPI": "PCEPI_1999_2025.csv",
+}
+
+raw = {}
+
+for name, filename in files.items():
+    table = pd.read_csv(
+        folder / filename,
+        index_col="observation_date",
+        parse_dates=True,
+        na_values=[".", "#N/A"],
+    )
+    raw[name] = table[name]
+    raw[name].index = raw[name].index.to_period("Q")
+
+# Average monthly observations; require all three months.
+unemployment = raw["UNRATE"].groupby(level=0)
+unemployment_q = unemployment.mean().where(unemployment.count() == 3)
+
+prices = raw["PCEPI"].groupby(level=0)
+prices_q = prices.mean().where(prices.count() == 3)
+prices_q = prices_q.reindex(
+    pd.period_range("1999Q1", "2025Q4", freq="Q")
+)
+
+# Calculate year-over-year inflation before removing 1999.
+inflation = 100 * (prices_q / prices_q.shift(4) - 1)
+
+# Combine quarterly observations.
+data = pd.DataFrame(
+    index=pd.period_range("2000Q1", "2025Q4", freq="Q")
+)
+data.index.name = "quarter"
+
+data["unemployment_rate"] = unemployment_q
+data["natural_unemployment_rate"] = raw["NROU"]
+data["real_gdp"] = raw["GDPC1"]
+data["potential_gdp"] = raw["GDPPOT"]
+data["inflation_rate"] = inflation
+
+# Construct next-four-quarter inflation from annualized forecasts.
+spf = pd.read_csv(
+    folder / "SPF_PCE_median_2000_2025.csv",
+    na_values=["#N/A"],
+)
+spf.index = pd.PeriodIndex(
+    spf["YEAR"].astype(int).astype(str)
+    + "Q"
+    + spf["QUARTER"].astype(int).astype(str),
+    freq="Q",
+)
+
+forecasts = spf[["PCE3", "PCE4", "PCE5", "PCE6"]]
+quarterly_factors = (1 + forecasts / 100) ** 0.25
+
+# This compounds horizon-specific medians into a one-year proxy.
+data["expected_inflation_1y"] = 100 * (
+    quarterly_factors.prod(axis=1, skipna=False) - 1
+)
+
+# Use 2% as a common benchmark, including before 2012.
+data["inflation_target"] = 2.0
+data["inflation_gap"] = data["inflation_rate"] - data["inflation_target"]
+data["unemployment_gap"] = (
+    data["unemployment_rate"] - data["natural_unemployment_rate"]
+)
+data["output_gap"] = 100 * (
+    data["real_gdp"] / data["potential_gdp"] - 1
+)
+data["expected_inflation_gap"] = (
+    data["expected_inflation_1y"] - data["inflation_target"]
+)
+
+# Keep missing values and save all quarters.
+output_file = output_folder / "macro_quarterly_2000_2025.csv"
+data.to_csv(output_file, na_rep="", encoding="utf-8")
+
+variables = [
+    "inflation_gap",
+    "unemployment_gap",
+    "output_gap",
+    "expected_inflation_gap",
+]
+
+print(f"Total quarters: {len(data)}")
+print(
+    "Complete Okun observations:",
+    len(data.dropna(subset=["unemployment_gap", "output_gap"])),
+)
+print(
+    "Complete four-variable observations:",
+    len(data.dropna(subset=variables)),
+)
+print("\nMissing values:")
+print(data[variables].isna().sum())
+print(f"\nSaved: {output_file}")

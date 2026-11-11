@@ -1,0 +1,26 @@
+{
+  "status": "provisional",
+  "generated_on": "2026-11-11",
+  "scenarios_file": "results/task1/scenarios.csv",
+  "scenarios_sha256": "17e8b024a89f6ab7fb9f51b367902ea258f8328655f3f1ed860e0f1b2c65a78d",
+  "split_seed": 775,
+  "split_score": 5.403523804687697,
+  "history_lengths": [
+    2,
+    5,
+    10,
+    20
+  ],
+  "n_input": 97,
+  "n_base": 96,
+  "n_train": 48,
+  "n_test": 48,
+  "neutral_control": "S000 excluded from train/test and histories; separate control table",
+  "environment": {
+    "python": "3.9.13",
+    "numpy": "2.0.2",
+    "matplotlib": "3.9.4"
+  },
+  "generator_sha256": "4412e8e3858a48fb51ddf2296d0aa6deb14aabb7a28a311df03a543e3ef87b1a",
+  "note": "Regenerate after the Task 1 scenario file is locked."
+}

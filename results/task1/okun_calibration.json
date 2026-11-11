@@ -1,0 +1,39 @@
+{
+  "n": 103,
+  "intercept": 0.15637129034660344,
+  "slope": -0.9469595754471,
+  "slope_se_ols": 0.045868233002035165,
+  "slope_se_newey_west": 0.060118968336489734,
+  "residual_interval": [
+    -1.5946056336392753,
+    1.6573401543163655
+  ],
+  "sample": "2000Q1-2025Q3; complete unemployment/output gap observations",
+  "percentile_method": "averaged_inverted_cdf (empirical quantiles; matches supplied thresholds)",
+  "newey_west": "4 lags, Bartlett kernel, n/(n-k) finite-sample correction",
+  "source_sha256": "7912def87e379578919781a1b9689ada7b9ec332d951c6c76a2ea5869a2e32d5",
+  "robustness": {
+    "excluding_2020": {
+      "n": 99,
+      "intercept": 0.16105127368711,
+      "slope": -0.9539434263135271,
+      "slope_se_ols": 0.050816584366602156,
+      "slope_se_newey_west": 0.07492183657690825,
+      "residual_interval": [
+        -1.5768061129625979,
+        1.5990942564988972
+      ]
+    },
+    "complete_four_gaps": {
+      "n": 75,
+      "intercept": 0.1899306613233966,
+      "slope": -0.9358559876630926,
+      "slope_se_ols": 0.04722208322322576,
+      "slope_se_newey_west": 0.062263072981970494,
+      "residual_interval": [
+        -1.5155378334539187,
+        1.6798749967829827
+      ]
+    }
+  }
+}

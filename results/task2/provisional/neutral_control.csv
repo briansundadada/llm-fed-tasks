@@ -1,0 +1,6 @@
+status,type,scenario_id,inflation_gap,unemployment_gap,expectations_gap,output_gap,region,latent_rate_bps,decision_bps
+provisional,A,S000,0,0,0,0,boundary,0,0
+provisional,B,S000,0,0,0,0,boundary,0,0
+provisional,C,S000,0,0,0,0,boundary,0,0
+provisional,D,S000,0,0,0,0,boundary,0,0
+provisional,E,S000,0,0,0,0,boundary,0,0

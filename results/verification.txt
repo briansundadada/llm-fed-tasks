@@ -1,0 +1,10 @@
+RESULT: PASSED
+Historical panel: 104 quarters; calibration: 103 complete Okun observations.
+Task 1: 320 candidates, 144 eligible, 96 balanced base + S000 = 97 unique scenarios.
+Saved presentation order preserves all scenario IDs and inputs.
+Task 2: 48 train / 48 test; S000 held separately; no history/test leakage.
+Five shared scenario histories: 20 decisions each, nested prefixes 2/5/10/20.
+First 5/10/20 histories full rank; first five cover all required regions; cell cap <= 2.
+All saved decisions reproduce the reaction function and 5 bp rounding rule.
+Held-out recovered ratios (A-E): 4.744, 1.984, 0.990, 0.494, 0.198
+This validates generated experimental materials, not LLM performance.

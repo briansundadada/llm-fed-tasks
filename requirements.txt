@@ -1,0 +1,4 @@
+# Versions used to regenerate and verify the committed results (Python 3.9.13).
+numpy==2.0.2
+pandas==2.3.3
+matplotlib==3.9.4

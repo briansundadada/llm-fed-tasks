@@ -1,0 +1,50 @@
+{
+  "status": "passed; Task 2 remains provisional",
+  "environment": {
+    "python": "3.9.13",
+    "numpy": "2.0.2",
+    "pandas": "2.3.3",
+    "matplotlib": "3.9.4"
+  },
+  "steps": [
+    "preprocess.py",
+    "calibrate_okun.py",
+    "generate_scenarios.py",
+    "generate_policymakers.py",
+    "verify_results.py"
+  ],
+  "sha256": {
+    "data/processed/macro_quarterly_2000_2025.csv": "7912def87e379578919781a1b9689ada7b9ec332d951c6c76a2ea5869a2e32d5",
+    "data/raw/GDPC1_2000_2025.csv": "1ce4eab382414b4d7d03bccd964cfdfbf3cb2ca1a9e62859850d6973389f1679",
+    "data/raw/GDPPOT_2000_2025.csv": "79e7e5ae2636c43e8129afccffa2cd70615d6fe36f1341e851385968513c11ec",
+    "data/raw/NROU_2000_2025.csv": "c9ba49ab090ff9cbbd47b5891498ed24770238009ee5d65a48409e5c7c65a8c3",
+    "data/raw/PCEPI_1999_2025.csv": "8a75cb9183b8d13f92c4bbf655a774ef3f01d84c278f260b325bc75d8ff6acc9",
+    "data/raw/SPF_PCE_median_2000_2025.csv": "e8d3feae0ff32b150aabc21f06c060c856f6d8bb2126102fbc9d6c5ba720985b",
+    "data/raw/UNRATE_2000_2025.csv": "2fd24d79fc21731879568759e7aca5fbca47f21c9a78c73921042f9cdaf1360f",
+    "requirements.txt": "9e3e97b1d730a14438014773f6e3f9778906ef851596992a8fe7096b237f308d",
+    "results/task1/correlations.csv": "5deb4c84076170fd939f1638a8903e6a6a30b0b75cd9cd9f12616c36a1937a17",
+    "results/task1/coverage.png": "10f02b02d3df74e69ec07d21ac911fec6b58cfe90d21521bef5468a396498967",
+    "results/task1/descriptive_statistics.csv": "fe134e19e45ae89584250e9c29d1e52736ebee686fa57e8f3ae8b775581bae52",
+    "results/task1/group_coverage.csv": "2dcfa1e6640e5209bfcacacb68b0787f1c69a68b32e2e6c8266f5bc50e11b76c",
+    "results/task1/okun_calibration.json": "246b6f26616beb13e2dda78945f077a76dacbf112688a246ded4fc4397a0805e",
+    "results/task1/okun_residuals.csv": "8b7ce052d007f4161e705ca44e2f04a771586b0fa7a67b593cc5f73372f489d3",
+    "results/task1/presentation_order.csv": "58c22283df2f6ee1276f636a78bf7aa7099a98c0e9cecfffd37129f3beb3a29a",
+    "results/task1/scenarios.csv": "17e8b024a89f6ab7fb9f51b367902ea258f8328655f3f1ed860e0f1b2c65a78d",
+    "results/task2/policymaker_types.csv": "a8a5d0485d709c5116c069c5e76bf3c58c931ff8a516ea98898da4a30435ffff",
+    "results/task2/provisional/check_report.txt": "73c1ef4aa80a56a42ce73109cd34a69346595b7678ac182bb39a78f5786cef03",
+    "results/task2/provisional/decision_histories.csv": "9b29b6ed7cd706d0eb3190b9862f49cb0a8e5226bc403d8b25a940c39b7c8f84",
+    "results/task2/provisional/neutral_control.csv": "210ab5930755b5e47eefc520fc8c99d237093eaae4da79cec59c345a6c08d753",
+    "results/task2/provisional/README.txt": "8d8d4e3260fd6f14ae52360557bffa8851619ccc1ced7ede1c4b50032293cffe",
+    "results/task2/provisional/run_metadata.json": "38711da78858b9764ec52986803f7b422722dec6d918c254d1dfa156e68c7fbd",
+    "results/task2/provisional/scenario_split.csv": "e96d2eae8e05a1387ff1bc6dee60770ca1b8156652d43d2aa70687d0abfce4bd",
+    "results/task2/provisional/test_targets.csv": "2b69b3424bd4db87c8f6d4d76f99df16b85469d08af95ee4e2fcf990d82a0ac9",
+    "results/task2/true_policy_surfaces.png": "2f3368fc5c50be81a18335c99936d494d3efad4e3939ab8bd0aae77471992bbf",
+    "results/verification.txt": "0812d88f55a7f0b2f5943f81ad706d882c613205a76424c303eb310c34310a87",
+    "scripts/calibrate_okun.py": "752987aad05445bbc3dd8292bfa40eb183d9efcc9eeb9bd1575005063be04203",
+    "scripts/generate_policymakers.py": "4412e8e3858a48fb51ddf2296d0aa6deb14aabb7a28a311df03a543e3ef87b1a",
+    "scripts/generate_scenarios.py": "c790781045f3a4ca234704ed887ac6db6230aad6717009606c52a114af6c81a1",
+    "scripts/preprocess.py": "46da79f837a50116d62b77c8cde96489555bda165b2d8483168eb0ac08f6f5d1",
+    "scripts/run_pipeline.py": "c4cf4de90d57636a6a01d6a32c551681316930f5839d68a794589b42e6326d32",
+    "scripts/verify_results.py": "a519bfd851cadf5df92e21bee169bf7e6862196f04b02807f1864c942c74495f"
+  }
+}
