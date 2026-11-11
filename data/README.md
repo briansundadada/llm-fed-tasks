@@ -1,6 +1,5 @@
 # Data provenance and dictionary
 
-These CSVs were supplied with the project. Their original download dates and vintage identifiers were not recorded. They are fixed local snapshots, not a claim to reproduce the latest published releases. The reorganization did not replace or download raw observations. The pipeline manifest records their exact SHA-256 hashes.
 
 ## Raw inputs
 
